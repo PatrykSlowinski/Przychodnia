@@ -1,0 +1,111 @@
+﻿<Page x:Class="Przychodnia.Windows.Visit.WindowViewListOfVisit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Przychodnia.Windows.Visit"
+      mc:Ignorable="d" 
+       Loaded="Page_Loaded"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        
+        RenderOptions.BitmapScalingMode ="HighQuality"
+        UseLayoutRounding="True"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="List of Visit" 
+      Height="650" Width="1000">
+
+
+    <StackPanel>
+        <materialDesign:ColorZone Mode="PrimaryMid" Padding="20" materialDesign:ShadowAssist.ShadowDepth="Depth3">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="List of Appointments" FontSize="30" Foreground="GhostWhite" />
+        </materialDesign:ColorZone>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="190"></ColumnDefinition>
+                <ColumnDefinition Width="190"></ColumnDefinition>
+                <ColumnDefinition Width="190"></ColumnDefinition>
+                <ColumnDefinition Width="215"></ColumnDefinition>
+                <ColumnDefinition Width="200*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Height="50" Width="200"  x:Name="Patient" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="0,22,0,0" Text="Patient:" Grid.Column="0"></TextBlock>
+            <TextBox x:Name="TextBoxSearchPatient" Width="140" HorizontalAlignment="Left" Grid.Column="1" FontSize="14" TextChanged="TextBoxSearch_TextChanged"></TextBox>
+        </Grid>
+
+            <Grid Height="50"  Width="200" x:Name="Doctor" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="0,22,0,0" Text="Doctor:" Grid.Column="0"></TextBlock>
+                <TextBox x:Name="TextBoxSearchDoctor" Width="140" HorizontalAlignment="Left" Grid.Column="1" FontSize="14" TextChanged="TextBoxSearch_TextChanged"></TextBox>
+            </Grid>
+            <Grid Height="50"  Width="200" x:Name="Topic" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="0,22,0,0" Text="Topic:" Grid.Column="0"></TextBlock>
+                <TextBox x:Name="TextBoxSearchTopic" Width="150" HorizontalAlignment="Left" Grid.Column="1" FontSize="14" TextChanged="TextBoxSearch_TextChanged"></TextBox>
+            </Grid>
+                  <Grid Height="50"  Width="200" x:Name="StartDate" Grid.Column="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="0,22,0,0" Text="StartDate:" Grid.Column="0"></TextBlock>
+                <DatePicker x:Name="DatePickerStartDate" Width="135" HorizontalAlignment="Left" Grid.Column="1" Margin="0" FontSize="14" SelectedDateChanged="Selection_Change"></DatePicker>
+            </Grid>
+            <Grid Height="50"  Width="200" x:Name="EndDate" Grid.Column="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="0,22,0,0" Text="End Date:" Grid.Column="0"></TextBlock>
+                <DatePicker x:Name="DatePickerEndDate" Width="135" HorizontalAlignment="Left" Grid.Column="1" Margin="0" FontSize="14" SelectedDateChanged="Selection_Change"></DatePicker>
+            </Grid>
+        </Grid>
+        <StackPanel>
+            <DataGrid x:Name="DataGridListOfVisit" Height="450" Width="1250" CanUserAddRows="False" CanUserDeleteRows="False" SelectionMode="Single" SelectionChanged="DataGridListOfVisit_SelectionChanged" Background="White" AutoGenerateColumns="False">
+                <DataGrid.Columns >
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding VisitId}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="NamePatient" Binding="{Binding PatientName}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="SurnamePatient" Binding="{Binding PatientSurname}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Phone number" Binding="{Binding PhoneNumber}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="DateOfVisit" Binding="{Binding DateVisit}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Doctor" Binding="{Binding DoctorName}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Office" Binding="{Binding OfficeNumber}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="To Pay" Binding="{Binding ToPay}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Topic" Binding="{Binding Topic}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Button Name="ButtonAdd" Click="ButtonAdd_Click" Content="Add" FontSize ="15" Foreground="GhostWhite" Grid.Column="0" Margin="20"/>
+                <Button Name="ButtonEdit" Click="ButtonEdit_Click" Content="Edit" FontSize ="15" Foreground="GhostWhite" Grid.Column="1" Margin="10,20,30,20"/>
+                <Button Name="ButtonAppointmentConfirmation" Click="ButtonAppointmentConfirmation_Click" Content="Confirm" FontSize ="15" Foreground="GhostWhite" Grid.Column="1" Margin="150,20,150,20" Grid.ColumnSpan="3"/>
+                <Button Name="ButtonViewDetails" Click="ButtonViewDetails_Click" Content="View Details" FontSize ="15" Foreground="GhostWhite" Grid.Column="3" Margin="40,20,0,20" RenderTransformOrigin="1.598,0.487"/>
+                <Button Name="ButtonCancel" Click="ButtonCancel_Click" Content="Cancel" FontSize ="15" Foreground="GhostWhite" Grid.Column="4" Margin="30,20,10,20"/>
+                <Button Name="ButtonClearOldAppointments" Click="ButtonClearOldAppointments_Click" Content="Delete old" FontSize ="15" Foreground="GhostWhite" Grid.Column="5" Margin="20,20,20,20"/>
+
+
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</Page>

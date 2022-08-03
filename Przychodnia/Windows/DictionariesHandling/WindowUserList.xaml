@@ -1,0 +1,73 @@
+﻿<Page x:Class="Przychodnia.Windows.DictionariesHandling.WindowUserList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Przychodnia.Windows.DictionariesHandling"
+        Background="CadetBlue"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        RenderOptions.BitmapScalingMode ="HighQuality"
+        UseLayoutRounding="True"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Height="819" Loaded="Page_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" >
+            <StackPanel Background="{DynamicResource MaterialDesignPaper}" VerticalAlignment="Center" Width="821">
+                <materialDesign:ColorZone Mode="PrimaryMid" Padding="20" materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="List Of Users" FontSize="30" Foreground="GhostWhite" />
+                </materialDesign:ColorZone>
+                <DataGrid x:Name="DataGridListOfUser" Height="500" Width="665" AutoGenerateColumns="False" Margin="0,20,0,0" CanUserAddRows="False" CanUserDeleteRows="False" SelectionMode="Single" >
+                    <DataGrid.Columns>
+                        <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding User_id}" IsReadOnly="True"/>
+                        <materialDesign:DataGridTextColumn Header="Login" Binding="{Binding Login}" IsReadOnly="True"/>
+                        <materialDesign:DataGridTextColumn Header="Password" Binding="{Binding Password}" IsReadOnly="True"/>
+                        <materialDesign:DataGridTextColumn Header="Email" Binding="{Binding Email}" IsReadOnly="True"/>
+                        <materialDesign:DataGridTextColumn Header="Permission" Binding="{Binding Permission}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button  Name="ButtonAdd" Content="Add" FontSize ="15" Foreground="GhostWhite" Grid.Column="0" Margin="20" Cursor="Hand" Click="ButtonAdd_Click" />
+                    <Button  Name="ButtonEdit" Content="Edit" FontSize ="15" Foreground="GhostWhite" Grid.Column="1" Margin="20" Cursor="Hand" Click="ButtonEdit_Click" />
+                    <Button Name="ButtonRemove" Content="Remove" FontSize ="15" Foreground="GhostWhite" Grid.Column="3" Margin="20" Cursor="Hand" Click="ButtonRemove_Click" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Margin="20,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23*"/>
+                <RowDefinition Height="796*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Background="{DynamicResource MaterialDesignPaper}" Margin="0,52,54,73" Grid.Row="1">
+                <materialDesign:ColorZone Mode="PrimaryMid" Grid.Row="1" Effect="{DynamicResource MaterialDesignShadowDepth5}" Height="75">
+                    <TextBlock Margin="16" Text="List Of Permissions" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" />
+                </materialDesign:ColorZone>
+                <DataGrid x:Name="DataGridListOfPermission" Height="515" AutoGenerateColumns="False" Margin="0,20,0,0" CanUserAddRows="False" CanUserDeleteRows="False" SelectionMode="Single" >
+                    <DataGrid.Columns>
+                        <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding PermissionId}" IsReadOnly="True"/>
+                        <materialDesign:DataGridTextColumn Header="Permission" Binding="{Binding Permission}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Grid.Row="0" HorizontalAlignment="left" Margin="10,0,0,0">
+                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Margin="120,0,0,0" Content="{materialDesign:PackIcon Kind=Plus, Size=10}" Click="Button_Click" />
+                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton }" Margin="220,0,0,0" Content="{materialDesign:PackIcon Kind=Minus, Size=10}" Click="Button_Click_1"  />
+                    <TextBox x:Name="TextBoxPermission" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Permission" Width="150" FontSize="14"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

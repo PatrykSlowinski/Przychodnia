@@ -1,0 +1,84 @@
+﻿<Window x:Class="Przychodnia.Windows.DictionariesHandling.WindowDoctorDataEdition"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:local="clr-namespace:Przychodnia.Windows.DictionariesHandling"
+mc:Ignorable="d"
+ResizeMode="CanMinimize"
+Loaded="Window_Loaded"
+xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+Background="{DynamicResource MaterialDesignPaper}"
+TextElement.FontWeight="Medium"
+TextElement.FontSize="15"
+        Initialized="Window_Initialized"
+RenderOptions.BitmapScalingMode ="HighQuality"
+UseLayoutRounding="True"
+FontFamily="{materialDesign:MaterialDesignFont}"
+Title="Doctor Data" Height="406" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="139*"/>
+            <ColumnDefinition Width="61*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2">
+            <materialDesign:ColorZone Mode="PrimaryMid" Padding="20" materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Doctor Data" FontSize="30" Foreground="GhostWhite" />
+            </materialDesign:ColorZone>
+            <Border BorderThickness="20">
+                <StackPanel>
+                    <Grid Height="35">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Active:" Grid.Column="0"></TextBlock>
+                        <CheckBox x:Name="CheckBoxActive" HorizontalAlignment="Left" Grid.Column="1" Margin="0,8,0,0"></CheckBox>
+                    </Grid>
+                    <Grid Height="35">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="125"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Degree of doctor:" Grid.Column="0"></TextBlock>
+                        <ComboBox x:Name="ComboBoxDegreeOfDoctor" Width="235" HorizontalAlignment="Left" Grid.Column="1" FontSize="14"></ComboBox>
+                    </Grid>
+                    <Grid Height="35" x:Name="User">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="125"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Employee:" Grid.Column="0"></TextBlock>
+                        <ComboBox x:Name="ComboBoxEmployee" Width="235" HorizontalAlignment="Left" Grid.Column="1" FontSize="14"></ComboBox>
+                    </Grid>
+                    <Grid Height="35" x:Name="Office">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="125"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Office:" Grid.Column="0"></TextBlock>
+                        <ComboBox x:Name="ComboBoxOffice" Width="235" HorizontalAlignment="Left" Grid.Column="1" FontSize="14"></ComboBox>
+                    </Grid>
+                    <Grid Height="35">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="110"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Specialization:" Grid.Column="0"></TextBlock>
+                        <ComboBox x:Name="ComboBoxSpecialization" Width="250" HorizontalAlignment="Left" Grid.Column="1" FontSize="14" SelectionChanged="ComboBoxSpecialization_SelectionChanged"></ComboBox>
+                    </Grid>
+                    <Grid Height="35">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Type of specialization:" Grid.Column="0"></TextBlock>
+                        <ComboBox x:Name="ComboBoxTypeOfSpecialization" Width="200" HorizontalAlignment="Left" Grid.Column="1" FontSize="14"></ComboBox>
+                    </Grid>
+                    <Button Name="ButtonSubmit" Content="Submit" FontSize ="15" Foreground="GhostWhite" Grid.Column="0" Margin="50,20,50,0" Click="ButtonSubmit_Click"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>

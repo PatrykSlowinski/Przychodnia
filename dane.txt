@@ -1,0 +1,11 @@
+Login: mistrz
+Hasło: Pass123!
+
+3.1 Obsługa kartoteki pacjentów
+3.1.1 Zarejestrowanie pacjenta
+3.1.2 Przegląd listy pacjentów
+3.1.3 Podgląd danych pacjenta
+3.1.4 Edycja danych pacjenta
+3.1.5 Dezaktywacja pacjenta
+3.1.6 Aktywacja pacjenta
+3.1.7 Usunięcie danych osobowych pacjenta

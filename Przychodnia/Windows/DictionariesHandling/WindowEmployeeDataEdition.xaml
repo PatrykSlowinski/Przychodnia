@@ -1,0 +1,79 @@
+﻿<Window x:Class="Przychodnia.Windows.DictionariesHandling.WindowEmployeeDataEdition"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Przychodnia.Windows.DictionariesHandling"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Loaded="Window_Loaded"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="16" 
+        RenderOptions.BitmapScalingMode ="HighQuality"
+        UseLayoutRounding="True"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="Employee Data" Height="408" Width="400">
+    <Grid>
+        <StackPanel>
+            <materialDesign:ColorZone Mode="PrimaryMid" Padding="20" materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Employee Data" FontSize="30" Foreground="GhostWhite" />
+            </materialDesign:ColorZone>
+            <Border BorderThickness="20">
+                <StackPanel>
+                    <Grid Height="35">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="55"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Name:" Grid.Column="0"></TextBlock>
+                        <TextBox x:Name="TextBoxName" Width="305" HorizontalAlignment="Left" Grid.Column="1" FontSize="14"></TextBox>
+                    </Grid>
+                    <Grid Height="35">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Surname:" Grid.Column="0"></TextBlock>
+                        <TextBox x:Name="TextBoxSurname" Width="285" HorizontalAlignment="Left" Grid.Column="1" FontSize="14"></TextBox>
+                    </Grid>
+                    <Grid Height="35">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Phone number:" Grid.Column="0"></TextBlock>
+                        <TextBox x:Name="TextBoxPhoneNumber" Width="240" HorizontalAlignment="Left" Grid.Column="1" Margin="0" FontSize="14"></TextBox>
+                    </Grid>
+                    <Grid Height="35">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Date of birth:" Grid.Column="0"></TextBlock>
+                        <DatePicker x:Name="DatePickerDateOfBirth" Width="260" HorizontalAlignment="Left" Grid.Column="1" Margin="0" FontSize="14"></DatePicker>
+                    </Grid>
+                    <Grid Height="35" x:Name="Pesel">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="Pesel:" Grid.Column="0"></TextBlock>
+                        <TextBox x:Name="TextBoxPesel" Width="310" HorizontalAlignment="Left" Grid.Column="1" FontSize="14"></TextBox>
+                    </Grid>
+                    <Grid Height="35" x:Name="User">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0,11,0,0" Text="User:" Grid.Column="0"></TextBlock>
+                        <ComboBox x:Name="ComboBoxUser" Width="320" HorizontalAlignment="Left" Grid.Column="1" FontSize="14"></ComboBox>
+                    </Grid>
+                    <Button Name="ButtonSubmit" Content="Submit" FontSize ="15" Foreground="GhostWhite" Grid.Column="0" Margin="50,20,50,0" Click="ButtonSubmit_Click"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>

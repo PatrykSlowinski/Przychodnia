@@ -1,0 +1,118 @@
+﻿<Window
+x:Class="Przychodnia.WindowAdministrator"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+mc:Ignorable="d"
+WindowState="Maximized"
+d:DesignHeight="900"
+d:DesignWidth="1000">
+
+
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
+
+
+
+    <Grid>
+
+
+
+        <GroupBox Style="{StaticResource MaterialDesignCardGroupBox}" materialDesign:ColorZoneAssist.Mode="Standard" materialDesign:ShadowAssist.ShadowEdges="Right" Grid.RowSpan="2">
+            <Grid >
+                <TabControl x:Name="TabControlMain" Style="{StaticResource MaterialDesignNavigatilRailTabControl}" materialDesign:ColorZoneAssist.Mode="PrimaryMid" Margin="-10,-26,0,-10">
+                    <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" Height="100" Width="90">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical">
+                                <materialDesign:PackIcon Kind="Doctor" />
+                                <TextBlock Text=" Doctor" Width="51" FontSize="10" HorizontalAlignment="Center" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Frame x:Name="FrameDoctor" Background="CadetBlue" Source="/Windows/DictionariesHandling/WindowViewListOfDoctors.xaml" NavigationUIVisibility="Hidden" Padding="0" Margin="0,0,-9,0"/>
+                    </TabItem>
+                    <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" Height="100" Width="90">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical" Width="70" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="AccountHardHat" />
+                                <TextBlock Text="Employee" Width="55" FontSize="10" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Frame x:Name="FrameEmployee" Background="CadetBlue" Source="/Windows/DictionariesHandling/WindowViewListOfEmployee.xaml" NavigationUIVisibility="Hidden" Margin="0,0,-9,0" Padding="0"/>
+                    </TabItem>
+                    <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" Height="100" Width="90">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical" Width="70" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Account" HorizontalAlignment="Center" Width="40" />
+                                <TextBlock Text=" User" Width="40" FontSize="10" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Frame x:Name="FrameUser" Background="CadetBlue" Source="/Windows/DictionariesHandling/WindowUserList.xaml" NavigationUIVisibility="Hidden" Padding="0" Margin="0,0,-9,0"/>
+                    </TabItem>
+                    <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" Height="100" Width="90">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical">
+                                <materialDesign:PackIcon Kind="EmojiSick" />
+                                <TextBlock Text=" Patient" Width="51" FontSize="10" HorizontalAlignment="Center" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Frame x:Name="FramePatient" Background="CadetBlue" Source="/Windows/Patient/WindowViewListOfPatient.xaml" NavigationUIVisibility="Hidden" Padding="0" Margin="0,0,-9,0" Navigated="FramePatient_Navigated"/>
+                    </TabItem>
+                    <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" Height="100" Width="90">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical" Width="70" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Event" HorizontalAlignment="Center" Width="40" />
+                                <TextBlock Text="Visit" Width="40" FontSize="10" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Frame x:Name="FrameVisit" Background="CadetBlue" Source="/Windows/Visit/WindowViewListOfVisit.xaml" NavigationUIVisibility="Hidden" Padding="0" Margin="0,0,-9,0"/>
+                    </TabItem>
+                    <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" Height="100" Width="90">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical" Width="70" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="OfficeBuildingOutline" HorizontalAlignment="Center" Width="40" />
+                                <TextBlock Text="Office" Width="40" FontSize="10" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Frame x:Name="FrameOffice" Background="CadetBlue" Source="/Windows/DictionariesHandling/PageViewListOfOffice.xaml" NavigationUIVisibility="Hidden" Padding="0" Margin="0,0,-9,0"/>
+                    </TabItem>
+                    
+                    <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" Height="100" Width="90">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical" Width="70" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Calendar" HorizontalAlignment="Center" Width="40" />
+                                <TextBlock Text="Calendar" Width="52" FontSize="10" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Frame x:Name="FrameCalendar" Background="CadetBlue" NavigationUIVisibility="Hidden" Padding="0" Margin="0,0,-9,0"/>
+                    </TabItem>
+                    
+                    <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" Height="100" Width="90" MouseLeftButtonUp="TabItem_MouseLeftButtonUp_Refresh">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical" Width="70" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Refresh"  HorizontalAlignment="Center" Width="40" />
+                                <TextBlock Text="Refresh" Width="50" FontSize="10" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Frame Background="CadetBlue" NavigationUIVisibility="Hidden" Padding="0" Margin="0,0,-9,0"/>
+                    </TabItem>
+                    <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" Height="100" Width="90" MouseLeftButtonUp="TabItem_MouseLeftButtonUp">
+                        <TabItem.Header>
+                            <StackPanel Orientation="Vertical" Width="70" HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Logout" HorizontalAlignment="Center" Width="40" />
+                                <TextBlock Text="Logout" Width="50" FontSize="10" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                        <Frame Background="CadetBlue" NavigationUIVisibility="Hidden" Padding="0" Margin="0,0,-9,0"/>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

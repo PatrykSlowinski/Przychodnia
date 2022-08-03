@@ -1,0 +1,44 @@
+﻿<Page x:Class="Przychodnia.Windows.DictionariesHandling.WindowViewListOfEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Przychodnia.Windows.DictionariesHandling"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        RenderOptions.BitmapScalingMode ="HighQuality"
+        UseLayoutRounding="True"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="List Of Employees" Height="571" Width="778" Loaded="Page_Loaded">
+    <Grid>
+        <StackPanel>
+            <materialDesign:ColorZone Mode="PrimaryMid" Padding="20" materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="List Of Employee" FontSize="30" Foreground="GhostWhite" />
+            </materialDesign:ColorZone>
+            <DataGrid x:Name="DataGridListOfEmployee" Height="400" Width="660" AutoGenerateColumns="False" Margin="0,20,0,0" CanUserAddRows="False" CanUserDeleteRows="False" SelectionMode="Single" >
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding EmployeeId}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Surname" Binding="{Binding Surname}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Phone number" Binding="{Binding PhoneNumber}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Date of birth" Binding="{Binding DateOfBirth, StringFormat=\{0:dd.MM.yyyy\}}" IsReadOnly="True"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="ButtonAdd" Content="Add" FontSize ="15" Foreground="GhostWhite" Width="190" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonAdd_Click" />
+                <Button Name="ButtonEdit" Content="Edit" FontSize ="15" Foreground="GhostWhite" Width="190" Grid.Column="1" Margin="20" Click="ButtonEdit_Click"/>
+                <Button Name="ButtonRemove" Content="Remove" FontSize ="15" Foreground="GhostWhite" Grid.Column="3" Width="190" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonRemove_Click" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
